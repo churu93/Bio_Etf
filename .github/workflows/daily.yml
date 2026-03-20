@@ -8,10 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Node.js 24 강제 사용 설정
     steps:
-      - uses: actions/checkout@v4 # v3에서 v4로 업데이트
+      - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v5 # v4에서 v5로 업데이트
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install dependencies
