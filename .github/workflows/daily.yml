@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Node.js 24 강제 사용
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -18,8 +18,7 @@ jobs:
           python-version: '3.12'
       - name: Install dependencies
         run: |
-          # pip install 뒤에 -r requirements.txt를 붙여서 파일을 읽게 해!
-          pip install -r requirements.txt 
+          pip install -r requirements.txt
       - name: Run bot
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
